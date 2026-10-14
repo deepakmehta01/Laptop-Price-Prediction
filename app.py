@@ -29,12 +29,15 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-html, body, [class*="css"] {
+/* General page */
+.stApp {
+    background: linear-gradient(135deg, #f5f7ff, #eef2ff, #f8faff);
+    color: #1e293b !important;
     font-family: 'Inter', sans-serif;
 }
 
-.stApp {
-    background: linear-gradient(135deg, #f5f7ff 0%, #eef2ff 55%, #f8faff 100%);
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
 }
 
 .block-container {
@@ -43,12 +46,25 @@ html, body, [class*="css"] {
     padding-bottom: 3rem;
 }
 
-/* Hero section */
+/* General text and labels */
+.stApp p,
+.stApp label,
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3,
+.stMarkdown h4,
+.stMarkdown h5 {
+    color: #1e293b;
+}
+
+/* Hero header */
 .hero {
     background: linear-gradient(120deg, #111827, #312e81, #6d28d9);
     padding: 36px 38px;
     border-radius: 24px;
-    color: white;
+    color: #ffffff !important;
     margin-bottom: 28px;
     box-shadow: 0 15px 40px rgba(49, 46, 129, 0.18);
 }
@@ -63,17 +79,18 @@ html, body, [class*="css"] {
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: #ffffff !important;
 }
 
 .hero h1 {
-    color: white;
+    color: #ffffff !important;
     font-size: clamp(28px, 4vw, 42px);
     font-weight: 800;
     margin: 18px 0 10px 0;
 }
 
 .hero p {
-    color: #ddd6fe;
+    color: #e0e7ff !important;
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 0;
@@ -83,57 +100,128 @@ html, body, [class*="css"] {
 .section-heading {
     font-size: 20px;
     font-weight: 750;
-    color: #1e1b4b;
+    color: #1e1b4b !important;
     margin: 10px 0 5px 0;
 }
 
 .section-subtitle {
     font-size: 13px;
-    color: #64748b;
+    color: #64748b !important;
     margin-bottom: 18px;
 }
 
 /* Input labels */
-label, .stSelectbox label, .stNumberInput label {
-    font-weight: 600 !important;
+.stSelectbox label,
+.stNumberInput label,
+.stRadio label,
+.stCheckbox label {
     color: #334155 !important;
+    font-weight: 600 !important;
 }
 
-/* Input fields */
+/* Selectbox and input backgrounds */
 div[data-baseweb="select"] > div {
-    border-radius: 10px;
-    border-color: #dbe2f0;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
 }
 
-div[data-baseweb="input"] > div {
-    border-radius: 10px;
-    border-color: #dbe2f0;
-    background-color: #ffffff;
+div[data-baseweb="input"] > div,
+div[data-baseweb="base-input"] {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 10px !important;
+}
+
+/* Selected dropdown text */
+div[data-baseweb="select"] div,
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] input {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+
+/* Number input text */
+div[data-baseweb="input"] input,
+div[data-baseweb="base-input"] input,
+.stNumberInput input {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    background-color: #ffffff !important;
+    caret-color: #4f46e5 !important;
+}
+
+/* Dropdown arrow */
+div[data-baseweb="select"] svg {
+    fill: #475569 !important;
+    color: #475569 !important;
+}
+
+/* Dropdown menu */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[data-testid="stSelectboxVirtualDropdown"] {
+    background-color: #ffffff !important;
+}
+
+/* Dropdown choices */
+div[role="option"],
+ul[data-testid="stSelectboxVirtualDropdown"] li {
+    color: #111827 !important;
+    background-color: #ffffff !important;
+}
+
+/* Dropdown hover */
+div[role="option"]:hover,
+ul[data-testid="stSelectboxVirtualDropdown"] li:hover {
+    color: #312e81 !important;
+    background-color: #eef2ff !important;
+}
+
+/* Placeholder */
+.stNumberInput input::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+}
+
+/* Focus effects */
+div[data-baseweb="select"] > div:focus-within,
+div[data-baseweb="input"] > div:focus-within {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 2px #6366f133 !important;
+}
+
+/* Form container */
+div[data-testid="stForm"] {
+    background: rgba(255,255,255,0.88);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 22px;
 }
 
 /* Predict button */
-.stButton > button {
+.stButton > button,
+.stFormSubmitButton > button {
     width: 100%;
-    border: none;
+    border: none !important;
     border-radius: 12px;
     padding: 0.85rem 1rem;
     font-weight: 700;
     font-size: 16px;
-    color: white;
-    background: linear-gradient(110deg, #4f46e5, #7c3aed);
+    color: #ffffff !important;
+    background: linear-gradient(110deg, #4f46e5, #7c3aed) !important;
     box-shadow: 0 7px 18px rgba(99, 102, 241, 0.22);
     transition: all 0.2s ease;
 }
 
-.stButton > button:hover {
-    color: white;
-    border: none;
+.stButton > button:hover,
+.stFormSubmitButton > button:hover {
+    color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(99, 102, 241, 0.32);
 }
 
-/* Result card */
+/* Prediction result */
 .price-card {
     background: linear-gradient(135deg, #ffffff, #f5f3ff);
     border: 1px solid #ddd6fe;
@@ -147,13 +235,13 @@ div[data-baseweb="input"] > div {
 .price-label {
     font-size: 13px;
     font-weight: 700;
-    color: #6d28d9;
+    color: #6d28d9 !important;
     text-transform: uppercase;
     letter-spacing: 1.4px;
 }
 
 .price-value {
-    color: #312e81;
+    color: #312e81 !important;
     font-size: clamp(30px, 4vw, 46px);
     font-weight: 800;
     margin: 12px 0;
@@ -161,25 +249,23 @@ div[data-baseweb="input"] > div {
 }
 
 .price-note {
-    color: #64748b;
+    color: #64748b !important;
     font-size: 13px;
 }
 
 /* Footer */
 .footer {
     text-align: center;
-    color: #94a3b8;
+    color: #64748b !important;
     font-size: 12px;
     padding-top: 35px;
 }
 
-div[data-testid="stForm"] {
-    background: rgba(255,255,255,0.78);
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    padding: 22px;
+.footer span {
+    color: #8b5cf6 !important;
 }
 
+/* Smaller screens */
 @media (max-width: 600px) {
     .hero {
         padding: 25px 22px;
@@ -195,28 +281,26 @@ div[data-testid="stForm"] {
 
 
 # --------------------------------------------------
-# LOAD SAVED MODEL AND DATA
+# LOAD MODEL AND DATA
 # --------------------------------------------------
 
 @st.cache_resource
 def load_model():
     with (BASE_DIR / "pipe.pkl").open("rb") as file:
-        model = pickle.load(file)
-    return model
+        return pickle.load(file)
 
 
 @st.cache_data
 def load_data():
     with (BASE_DIR / "df.pkl").open("rb") as file:
-        data = pickle.load(file)
-    return data
+        return pickle.load(file)
 
 
 try:
     pipe = load_model()
     df = load_data()
 except Exception as error:
-    st.error(f"Unable to load the saved model or dataset: {error}")
+    st.error(f"Unable to load model or dataset: {error}")
     st.stop()
 
 
@@ -237,22 +321,21 @@ st.markdown("""
 
 
 # --------------------------------------------------
-# LAPTOP SPECIFICATIONS FORM
+# LAPTOP CONFIGURATION FORM
 # --------------------------------------------------
 
 st.markdown(
-    '<div class="section-heading">⚙️ Configure your laptop</div>',
+    '<div class="section-heading">⚙️ Configure Your Laptop</div>',
     unsafe_allow_html=True
 )
 
 st.markdown(
-    '<div class="section-subtitle">Choose the specifications below to get your price estimate.</div>',
+    '<div class="section-subtitle">Choose your specifications to estimate the price.</div>',
     unsafe_allow_html=True
 )
 
 with st.form("laptop_form"):
 
-    # Brand and laptop category
     st.markdown("##### 🏷️ Brand & Category")
 
     col1, col2 = st.columns(2)
@@ -270,8 +353,6 @@ with st.form("laptop_form"):
         )
 
     st.markdown("---")
-
-    # Hardware
     st.markdown("##### 🚀 Performance & Hardware")
 
     col1, col2 = st.columns(2)
@@ -315,8 +396,6 @@ with st.form("laptop_form"):
         )
 
     st.markdown("---")
-
-    # Display
     st.markdown("##### 🖥️ Display & Operating System")
 
     col1, col2 = st.columns(2)
@@ -361,11 +440,7 @@ with st.form("laptop_form"):
             sorted(df["os"].dropna().unique())
         )
 
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    submitted = st.form_submit_button(
-        "✨ Predict Laptop Price"
-    )
+    submitted = st.form_submit_button("✨ Predict Laptop Price")
 
 
 # --------------------------------------------------
@@ -378,11 +453,8 @@ if submitted:
         ips_value = 1 if ips == "Yes" else 0
 
         x_res, y_res = map(int, resolution.split("x"))
-
         ppi = np.sqrt(x_res**2 + y_res**2) / screen_size
 
-        # Use named columns because the saved model's
-        # ColumnTransformer expects a Pandas DataFrame.
         query = pd.DataFrame(
             [[
                 company,
@@ -417,7 +489,7 @@ if submitted:
         prediction = float(np.exp(pipe.predict(query)[0]))
 
         if not np.isfinite(prediction) or prediction <= 0:
-            st.error("The model returned an invalid price. Please try different specifications.")
+            st.error("The model returned an invalid price. Try different specifications.")
         else:
             st.markdown(f"""
             <div class="price-card">
@@ -444,6 +516,6 @@ if submitted:
 
 st.markdown("""
 <div class="footer">
-    Built with ❤️ using Streamlit, Python & Machine Learning
+    Built with <span>♥</span> using Streamlit, Python & Machine Learning
 </div>
 """, unsafe_allow_html=True)
